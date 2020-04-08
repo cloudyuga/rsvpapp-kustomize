@@ -1,0 +1,13 @@
+resources:
+- ../../base
+namePrefix: prod-
+patchesStrategicMerge:
+- prod-configmap.yaml
+- replica-count.yaml
+configMapGenerator:
+- literals:
+  - TEXT1="Welcome to"
+  - TEXT2="Production"
+  name: rsvpconfig-prod
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization

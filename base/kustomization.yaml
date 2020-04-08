@@ -1,0 +1,16 @@
+resources:
+- backend
+- frontend
+commonLabels:
+  demo: online 
+commonAnnotations:
+  training: Kubernetes Training
+namePrefix: cloudyuga-
+patchesStrategicMerge:
+- patch.yaml
+vars:
+  - name: MONGODB_HOST
+    objref:
+      kind: Service
+      name: mongodb
+      apiVersion: v1
